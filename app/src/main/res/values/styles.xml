@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+
+        <!--标题栏-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!--状态栏-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--FloatingActionButton 的background-->
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+
+        <!--&lt;!&ndash;标题栏、menu中item的title  字体颜色&ndash;&gt;-->
+        <!--<item name="android:textColorPrimary">@color/colorWhiter</item>-->
+
+        <!--屏幕background-->
+        <item name="android:windowBackground">@color/colorWhiter</item>
+    </style>
+
+</resources>
