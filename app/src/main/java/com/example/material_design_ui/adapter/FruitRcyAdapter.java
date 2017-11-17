@@ -49,8 +49,20 @@ public class FruitRcyAdapter extends RecyclerView.Adapter<FruitRcyAdapter.FruitR
             context = parent.getContext();
         }
         View view = LayoutInflater.from(context).inflate(R.layout.furit_item,parent,false);
+        final FruitRcyViewholder holder = new FruitRcyViewholder(view);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int adapterPosition = holder.getAdapterPosition();
+                Intent intent = new Intent( context , FruitActivity.class);
+                intent.putExtra("fruit_name",fruit.getData().getNameList().get(adapterPosition));
+                intent.putExtra("fruit_image",fruit.getData().getPicList().get(adapterPosition));
+                context.startActivity(intent);
+            }
+        });
 
-        return new FruitRcyViewholder(view);
+
+        return holder;
     }
 
     @Override
@@ -60,17 +72,7 @@ public class FruitRcyAdapter extends RecyclerView.Adapter<FruitRcyAdapter.FruitR
 
         Glide.with(context).load(fruit.getData().getPicList().get(position)).into(holder.fruit_image);
 
-        holder.fruit_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-                Intent intent = new Intent( context , FruitActivity.class);
-                intent.putExtra("fruit_name",fruit.getData().getNameList().get(position));
-                intent.putExtra("fruit_image",fruit.getData().getPicList().get(position));
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
